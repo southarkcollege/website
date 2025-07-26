@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Buttons Test</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+<style>
+
+@media (max-width: 600px) {
+  .button-group {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px;
+    width: 90%;
+    max-width: 400px;
+    z-index: 9999;
+  }
+
+  #btn1, #btn2 {
+    width: 100% !important;
+    font-size: 20px !important;
+    text-align: center !important;
+  }
+
+  video {
+    margin-bottom: 120px !important; /* leave space for fixed buttons */
+  }
+}
+
+#video-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#video-container .button-group {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+#video-container button {
+  padding: 10px 20px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 28px !important;
+  background-color: #8a2228 !important;
+  color: white !important;
+  border: none !important;
+  cursor: pointer !important;
+  border-radius: 5px !important;
+}
+</style>
+</head>
+<body>
+
+<div id="video-container">
+<video id="SouthArk" width="100%" autoplay muted playsinline loop controls style="width: 100%; height: auto;">
+  <source src="https://5il.co/3mlhd" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<div class="button-group">
+<a id="btn1" href="https://www.southark.edu/page/apply-to-southark-today"
+   style="display: inline-block; background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <b>APPLY TODAY!</b>
+</a>
+
+<a id="btn2" href="https://www.southark.edu/o/sac/page/academic-advising"
+   style="display: inline-block; background-color: #da4e0f; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   Contact an Advisor TODAY!
+</a>
+
+</div>
+</div>
+
+
+<script>
+  const video = document.getElementById('SouthArk');
+  const btn1 = document.getElementById('btn1');
+  const btn2 = document.getElementById('btn2');
+
+  video.addEventListener('timeupdate', () => {
+    const t = video.currentTime;
+    console.log("Current Time:", t);
+
+    if (t >= 0 && t < 7) {
+      btn1.style.display = 'inline-block';
+      btn2.style.display = 'none';
+    } else if (t >= 7 && t < 12) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'inline-block';
+    } else {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
