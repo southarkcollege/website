@@ -11,21 +11,20 @@
 @media (max-width: 600px) {
   #video-container .button-group {
     position: fixed !important;
-    bottom: 80px !important; /* raised from 20px to 60px */
+    bottom: 80px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 10px !important;
-    width: auto !important;
-    max-width: 600px !important;
-    padding: 0 10px !important;
+    width: 100% !important;       /* full width of container */
+    max-width: 100% !important;   /* no fixed max */
+    padding: 0 !important;        /* remove horizontal padding */
     z-index: 9999 !important;
   }
 
   #btn1, #btn2 {
-    width: auto !important;
-    max-width: 100% !important;
+    width: 100% !important;       /* fill container */
     font-size: 14px !important;
     text-align: center !important;
     padding: 5px 10px !important;
