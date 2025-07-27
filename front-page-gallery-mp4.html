@@ -9,30 +9,32 @@
 <style>
 
 @media (max-width: 600px) {
-  .button-group {
+
+  #video-container .button-group {
+    /* add !important to everything here */
     position: fixed !important;
     bottom: 20px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 10px;
-    width: auto !important;      /* Let width adjust naturally */
-    max-width: 320px;            /* Max width for the group */
-    padding: 0 10px;             /* Small horizontal padding */
-    z-index: 9999;
+    gap: 10px !important;
+    width: auto !important;
+    max-width: 320px !important;
+    padding: 0 10px !important;
+    z-index: 9999 !important;
   }
 
   #btn1, #btn2 {
-    width: auto !important;      /* Let buttons size to content */
-    max-width: 100%;             /* Don't overflow container */
+    width: auto !important;
+    max-width: 100% !important;
     font-size: 20px !important;
     text-align: center !important;
-    padding: 10px 20px !important; /* Comfortable padding */
+    padding: 10px 20px !important;
   }
 
   video {
-    margin-bottom: 160px !important; /* leave space for fixed buttons */
+    margin-bottom: 160px !important;
   }
 }
 
