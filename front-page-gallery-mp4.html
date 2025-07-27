@@ -11,28 +11,25 @@
 @media (max-width: 600px) {
   .button-group {
     position: fixed !important;
-    bottom: 5px !important;
+    bottom: 20px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 10px;
-    width: auto !important;      /* Let width adjust naturally */
-    max-width: 250px;            /* Max width for the group */
-    padding: 0 10px;             /* Small horizontal padding */
+    width: 90%;
+    max-width: 400px;
     z-index: 9999;
   }
 
   #btn1, #btn2 {
-    width: auto !important;      /* Let buttons size to content */
-    max-width: 100%;             /* Don't overflow container */
-    font-size: 10px !important;
+    width: 100% !important;
+    font-size: 20px !important;
     text-align: center !important;
-    padding: 10px 10px !important; /* Comfortable padding */
   }
 
   video {
-    margin-bottom: 160px !important; /* leave space for fixed buttons */
+    margin-bottom: 120px !important; /* leave space for fixed buttons */
   }
 }
 
