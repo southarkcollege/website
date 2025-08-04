@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>South Arkansas College</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+
+<style>
+
+  .sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 600px) {
+  #video-container .button-group {
+    position: fixed !important;
+    bottom: 80px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 60% !important;
+    max-width: 60% !important;
+    padding: 0 !important;
+    z-index: 9999 !important;
+  }
+
+  #btn1, #btn2, #btn3 {
+    width: 100% !important;
+    font-size: 14px !important;
+    text-align: center !important;
+    padding: 5px 10px !important;
+    display: none;
+  }
+
+  video {
+    margin-bottom: 160px !important;
+  }
+}
+
+#btn1, #btn2, #btn3 {
+  display: none;
+}
+
+#video-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+#video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#video-container .button-group {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%; /* or max-width you want */
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* centers buttons except #btn3 */
+  transform: none; /* remove translateX */
+}
+  
+#video-container button {
+  padding: 10px 10px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 28px !important;
+  background-color: #8a2228 !important;
+  color: white !important;
+  border: none !important;
+  cursor: pointer !important;
+  border-radius: 5px !important;
+}
+
+</style>
+</head>
+<body>
+
+<h1 class="sr-only">South Arkansas College Front Page Animation</h1>
+
+<div id="video-container">
+<video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
+  aria-label="Animated video introducing South Arkansas College with three sections: Apply Today, Contact an Advisor, and Search Jobs." style="width: 100%; height: auto;">
+  <source src="frontpage-842025.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<div class="button-group">
+<a id="btn1" href="https://www.southark.edu/page/apply-to-southark-today"
+     aria-label="Apply today to South Arkansas College!"
+   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-rocket"></i> APPLY TODAY!
+</a>
+
+<a id="btn2" href="https://www.southark.edu/o/sac/page/academic-advising"
+     aria-label="Contact an Advisor Today!"
+   style="background-color: #da4e0f; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-user-astronaut"></i> CONTACT AN ADVISOR TODAY!
+</a>
+
+<a id="btn3" href="https://www.southark.edu/page/employment-at-southark"
+     aria-label="Search for Jobs at South Arkansas College"
+   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-magnifying-glass-dollar"></i> SEARCH JOBS
+</a>
+
+</div>
+</div>
+
+<div id="aria-live" class="sr-only" aria-live="polite"></div>
+
+<script>
+  const video = document.getElementById('SouthArk');
+  const btn1 = document.getElementById('btn1');
+  const btn2 = document.getElementById('btn2');
+  const btn3 = document.getElementById('btn3');
+
+  const liveRegion = document.getElementById('aria-live');
+
+  video.addEventListener('timeupdate', () => {
+    const t = video.currentTime;
+
+    if (t >= 0 && t < 7) {
+      btn1.style.display = 'inline-block';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+      liveRegion.textContent = "Apply Today button displayed";
+    } else if (t >= 7 && t < 22) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';  // This line was changed from 'inline-block' to 'none' to hide the button.
+      btn3.style.display = 'none';
+      liveRegion.textContent = "No button displayed";  // This line changed to 'no button displayed' for screen readers.
+    } else if (t >= 23 && t < 30) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'inline-block';
+      liveRegion.textContent = "Search Jobs button displayed";
+    } else {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
+
