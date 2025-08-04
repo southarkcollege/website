@@ -100,7 +100,7 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with three sections: Apply Today, Contact an Advisor, and Search Jobs." style="width: 100%; height: auto;">
-  <source src="frontpage.mp4" type="video/mp4">
+  <source src="frontpage-842025.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -144,12 +144,12 @@
       btn2.style.display = 'none';
       btn3.style.display = 'none';
       liveRegion.textContent = "Apply Today button displayed";
-    } else if (t >= 7 && t < 11) {
+    } else if (t >= 7 && t < 22) {
       btn1.style.display = 'none';
-      btn2.style.display = 'inline-block';
+      btn2.style.display = 'none';  // This line was changed from 'inline-block' to 'none' to hide the button.
       btn3.style.display = 'none';
-      liveRegion.textContent = "Contact an Advisor Today button displayed";
-    } else if (t >= 12 && t < 19) {
+      liveRegion.textContent = "No button displayed";  // This line changed to 'no button displayed' for screen readers.
+    } else if (t >= 23 && t < 30) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'inline-block';
@@ -163,3 +163,4 @@
 </script>
 </body>
 </html>
+
