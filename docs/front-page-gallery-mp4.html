@@ -100,7 +100,7 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with three sections: Apply Today, Contact an Advisor, and Search Jobs." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage-08062025-2.mp4" type="video/mp4">
+  <source src="https://southarkcollege.github.io/website/front/frontpage-08082025.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -117,16 +117,16 @@
    <i class="fa-solid fa-user-astronaut"></i> CONTACT AN ADVISOR TODAY!
 </a>
 
-<a id="btn3" href="https://www.southark.edu/page/communications-studies"
+<a id="btn3" href="https://www.southark.edu/page/multi-factor-authentication"
      aria-label="Search for Jobs at South Arkansas College"
-   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-magnifying-glass-dollar"></i> SEARCH JOBS
+   style="background-color: #FFFFFF; color: #001F3F; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN ABOUT AUTHENTICATOR LITE
 </a>
 
-<a id="btn4" href="https://www.southark.edu/page/employment-at-southark"
-     aria-label="Communications Studies"
-   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-magnifying-glass-dollar"></i> SEARCH JOBS
+<a id="btn4" href="https://www.southark.edu/page/communications-studies"
+     aria-label="Multi-Factor Authentication"
+   style="background-color: #c25bad; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-microphone"></i> LEARN MORE!
 </a>
 
 </div>
@@ -146,7 +146,7 @@
   video.addEventListener('timeupdate', () => {
     const t = video.currentTime;
 
-    if (t >= 0 && t < 7) {
+    if (t >= 0 && t < 6) {
       btn1.style.display = 'inline-block';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
@@ -158,18 +158,18 @@
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       liveRegion.textContent = "No button displayed";  // This line changed to 'no button displayed' for screen readers.
-      } else if (t >= 22 && t < 32) {
+      } else if (t >= 22 && t < 33) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';  
-      btn3.style.display = 'none';  // This line was changed from 'inline-block' to 'none' to hide the button.
+      btn3.style.display = 'inline-block'; 
       btn4.style.display = 'none';  
-      liveRegion.textContent = "No button displayed";  // This line changed to 'no button displayed' for screen readers.
-    } else if (t >= 33 && t < 40) {
+      liveRegion.textContent = "Learn about Authenticator lite displayed"; 
+    } else if (t >= 34 && t < 40) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
-      btn4.style.display = 'inline-block';
-      liveRegion.textContent = "Search Jobs button displayed";
+      btn4.style.display = 'inline-block';  
+      liveRegion.textContent = "Learn more displayed";   
     } else {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
