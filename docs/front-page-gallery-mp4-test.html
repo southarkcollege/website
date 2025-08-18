@@ -37,7 +37,7 @@
     z-index: 9999 !important;
   }
 
-  #btn1, #btn2, #btn3, #btn4 {
+  #btn1, #btn2, #btn3, #btn4, #btn5 {
     width: 100% !important;
     font-size: 14px !important;
     text-align: center !important;
@@ -50,7 +50,7 @@
   }
 }
 
-#btn1, #btn2, #btn3, #btn4 {
+#btn1, #btn2, #btn3, #btn4, #btn5 {
   display: none;
 }
 
@@ -99,8 +99,8 @@
 
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
-  aria-label="Animated video introducing South Arkansas College with three sections: Apply Today, Contact an Advisor, and Search Jobs." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage08172025.mp4" type="video/mp4">
+  aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
+  <source src="https://southarkcollege.github.io/website/front/frontpage-08112025.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -111,22 +111,28 @@
    <i class="fa-solid fa-rocket"></i> APPLY TODAY!
 </a>
 
-<a id="btn2" href="https://www.southark.edu/o/sac/page/academic-advising"
+<a id="btn2" href="https://www.southark.edu/page/academic-advising"
      aria-label="Contact an Advisor Today!"
    style="background-color: #da4e0f; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-user-astronaut"></i> CONTACT AN ADVISOR TODAY!
 </a>
 
 <a id="btn3" href="https://www.southark.edu/page/multi-factor-authentication"
-     aria-label="Search for Jobs at South Arkansas College"
+     aria-label="Learn about Authenticator Lite"
    style="background-color: #FFFFFF; color: #001F3F; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
      <i class="fa-solid fa-lock"></i> LEARN ABOUT AUTHENTICATOR LITE
 </a>
 
 <a id="btn4" href="https://www.southark.edu/page/communications-studies"
-     aria-label="Multi-Factor Authentication"
-   style="background-color: #c25bad; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     aria-label="Learn More about Communications Studies"
+   style="background-color: #000000; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-microphone"></i> LEARN MORE!
+</a>
+
+<a id="btn5" href="https://www.southark.edu/"
+     aria-label="Student Resource Fair Information"
+   style="background-color: #2c5aa0; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-users"></i> FALL 2025 STUDENT RESOURCE FAIR
 </a>
 
 </div>
@@ -140,50 +146,56 @@
   const btn2 = document.getElementById('btn2');
   const btn3 = document.getElementById('btn3');
   const btn4 = document.getElementById('btn4');
+  const btn5 = document.getElementById('btn5');
 
   const liveRegion = document.getElementById('aria-live');
 
   video.addEventListener('timeupdate', () => {
     const t = video.currentTime;
 
-    if (t >= 0 && t < 6) {
+    if (t >= 0 && t < 7) {
       btn1.style.display = 'inline-block';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
+      btn5.style.display = 'none';
       liveRegion.textContent = "Apply Today button displayed";
-    } else if (t >= 6 && t < 13) {
+    } else if (t >= 7 && t < 22) {
       btn1.style.display = 'none';
-      btn2.style.display = 'none';  // This line was changed from 'inline-block' to 'none' to hide the button.
+      btn2.style.display = 'none';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
-      liveRegion.textContent = "No button displayed";  // This line changed to 'no button displayed' for screen readers.
-      } else if (t >= 13 && t < 23) {
+      btn5.style.display = 'none';
+      liveRegion.textContent = "No button displayed";
+    } else if (t >= 22 && t < 32) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';  
       btn3.style.display = 'inline-block'; 
-      btn4.style.display = 'none';  
+      btn4.style.display = 'none';
+      btn5.style.display = 'none';
       liveRegion.textContent = "Learn about Authenticator lite displayed"; 
-    } else if (t >= 23 && t < 33) {
+    } else if (t >= 34 && t < 42) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
-      btn4.style.display = 'inline-block';  
+      btn4.style.display = 'inline-block';
+      btn5.style.display = 'none';
       liveRegion.textContent = "Learn more displayed";   
-     } else if (t >= 33 && t < 42) {
+    } else if (t >= 42 && t < 52) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
-      btn4.style.display = 'inline-block';  
-      liveRegion.textContent = "Learn more displayed";  
+      btn4.style.display = 'none';
+      btn5.style.display = 'none';
+      liveRegion.textContent = "No button for Fall 2025 Student Resource Fair displayed";   
     } else {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
+      btn5.style.display = 'none';
     }
   });
 </script>
 </body>
 </html>
-
