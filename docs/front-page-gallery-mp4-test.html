@@ -7,6 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 <style>
 
@@ -22,31 +24,36 @@
   border: 0 !important;
 }
 
-@media (max-width: 600px) {
+/* Make the mobile breakpoint more forgiving */
+@media (max-width: 768px) {
   #video-container .button-group {
     position: fixed !important;
-    bottom: 80px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
+    /* Respect iOS safe area; keep it at the visual bottom */
+    bottom: max(16px, env(safe-area-inset-bottom) + 16px) !important;
+
     display: flex !important;
     flex-direction: column !important;
     gap: 10px !important;
     width: 60% !important;
-    max-width: 60% !important;
+    max-width: 420px !important;
     padding: 0 !important;
     z-index: 9999 !important;
   }
 
+  /* Ensure the visible button fills the group width */
   #btn1, #btn2, #btn3, #btn4, #btn5 {
     width: 100% !important;
     font-size: 14px !important;
     text-align: center !important;
-    padding: 5px 10px !important;
-    display: none;
+    padding: 8px 12px !important;
+    display: none; /* JS will set inline display: inline-block */
   }
 
-  video {
-    margin-bottom: 160px !important;
+  /* If you only use fixed positioning, you don't need this margin */
+  #video-container video {
+    margin-bottom: 0 !important;
   }
 }
 
