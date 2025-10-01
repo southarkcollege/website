@@ -25,32 +25,36 @@
   border: 0 !important;
 }
 
-@media (max-width: 600px) {
+/* Make the mobile breakpoint more forgiving */
+@media (max-width: 768px) {
   #video-container .button-group {
-    /* position: fixed !important; */   /* old line is now commented out */
-    position: absolute !important;      /* new line added */
-    bottom: 80px !important;
+    position: fixed !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
+    /* Respect iOS safe area; keep it at the visual bottom */
+    bottom: max(16px, env(safe-area-inset-bottom) + 16px) !important;
+
     display: flex !important;
     flex-direction: column !important;
     gap: 10px !important;
     width: 60% !important;
-    max-width: 60% !important;
+    max-width: 420px !important;
     padding: 0 !important;
     z-index: 9999 !important;
   }
 
+  /* Ensure the visible button fills the group width */
   #btn1, #btn2, #btn3, #btn4, #btn5 {
     width: 100% !important;
     font-size: 14px !important;
     text-align: center !important;
-    padding: 5px 10px !important;
-    display: none;
+    padding: 8px 12px !important;
+    display: none; /* JS will set inline display: inline-block */
   }
 
-  video {
-    margin-bottom: 160px !important;
+  /* If you only use fixed positioning, you don't need this margin */
+  #video-container video {
+    margin-bottom: 0 !important;
   }
 }
 
@@ -204,6 +208,7 @@
 </script>
 </body>
 </html>
+
 
 
 
