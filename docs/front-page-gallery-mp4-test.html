@@ -43,7 +43,7 @@
   }
 
   /* Ensure the visible button fills the group width */
-  #btn1, #btn2, #btn3, #btn4, #btn5 {
+  #btn1, #btn2, #btn3, #btn4, #btn5, #btn6 {
     width: 100% !important;
     font-size: 14px !important;
     text-align: center !important;
@@ -57,7 +57,7 @@
   }
 }
 
-#btn1, #btn2, #btn3, #btn4, #btn5 {
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6 {
   display: none;
 }
 
@@ -142,6 +142,12 @@
      <i class="fa-solid fa-lock"></i> LEARN ABOUT AUTHENTICATOR LITE
 </a>
 
+<a id="btn6" href="https://www.southark.edu/page/multi-factor-authentication"
+     aria-label="Learn about Authenticator Lite"
+   style="background-color: #FFFFFF; color: #001F3F; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN ABOUT AUTHENTICATOR LITE
+</a>
+
 </div>
 </div>
 
@@ -166,6 +172,7 @@
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
+      btn6.style.display = 'none';
       liveRegion.textContent = "Apply Today button displayed";
     } else if (t >= 7 && t < 14) {
       btn1.style.display = 'none';
@@ -173,6 +180,7 @@
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
+      btn6.style.display = 'none';
       liveRegion.textContent = "No button displayed";
     } else if (t >= 14 && t < 21) {
       btn1.style.display = 'none';
@@ -180,6 +188,7 @@
       btn3.style.display = 'none'; 
       btn4.style.display = 'none';
       btn5.style.display = 'none';
+      btn6.style.display = 'none';
       liveRegion.textContent = "No button"; 
     } else if (t >= 21 && t < 28) {
       btn1.style.display = 'none';
@@ -187,14 +196,24 @@
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
+      btn6.style.display = 'none';
       liveRegion.textContent = "No button";   
     } else if (t >= 28 && t < 35) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
-      btn5.style.display = 'inline-block';
-      liveRegion.textContent = "MFA";   
+      btn5.style.display = 'none';
+      btn6.style.display = 'none';
+      liveRegion.textContent = "No button";  
+    } else if (t >= 35 && t < 42) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+      btn4.style.display = 'none';
+      btn5.style.display = 'none';
+      btn6.style.display = 'inline-block';
+      liveRegion.textContent = "MFA";  
     } 
   });
 </script>
