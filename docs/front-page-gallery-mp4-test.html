@@ -107,7 +107,7 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage-10222025.mp4" type="video/mp4">
+  <source src="https://southarkcollege.github.io/website/front/frontpage-10232025.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -120,8 +120,8 @@
 
 <a id="btn2" href="https://www.southark.edu/page/academic-advising"
      aria-label="Contact an Advisor Today!"
-   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-rocket"></i> APPLY TODAY!
+   style="background-color: #c49a6c; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-house"></i> APPLY NOW!
 </a>
 
 <a id="btn3" href="https://www.southark.edu/page/multi-factor-authentication"
@@ -176,7 +176,7 @@
       liveRegion.textContent = "Apply Today button displayed";
     } else if (t >= 7 && t < 14) {
       btn1.style.display = 'none';
-      btn2.style.display = 'none';
+      btn2.style.display = 'inline-block';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
@@ -199,6 +199,14 @@
       btn6.style.display = 'none';
       liveRegion.textContent = "No button";   
     } else if (t >= 28 && t < 35) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+      btn4.style.display = 'none';
+      btn5.style.display = 'none';
+      btn6.style.display = 'none';
+      liveRegion.textContent = "No button";    
+    } else if (t >= 35 && t < 42) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
