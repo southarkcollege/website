@@ -43,7 +43,7 @@
   }
 
   /* Ensure the visible button fills the group width */
-  #btn1, #btn2, #btn3, #btn4, #btn5, #btn6 {
+  #btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7 {
     width: 100% !important;
     font-size: 14px !important;
     text-align: center !important;
@@ -57,7 +57,7 @@
   }
 }
 
-#btn1, #btn2, #btn3, #btn4, #btn5, #btn6 {
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7 {
   display: none;
 }
 
@@ -107,7 +107,7 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage-11012025-4.mp4" type="video/mp4">
+  <source src="https://southarkcollege.github.io/website/front/frontpage-11032025-2.mp4" type="video/mp4">
   Your browser does not support the video tag. 
 </video>
 
@@ -121,16 +121,16 @@
 
 <a id="btn2" href="https://www.southark.edu/o/sac/page/housing"
    target="_top"
-     aria-label="Contact an Advisor Today!"
-   style="background-color: #c49a6c; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-house"></i> APPLY NOW!
+     aria-label="Academic Shining Stars"
+   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-house"></i> CLICK HERE!
 </a>
 
-<a id="btn3" href="https://www.southark.edu/page/multi-factor-authentication"
+<a id="btn3" href="https://www.southark.edu/o/sac/page/academic-shining-stars-november-2025"
    target="_top"
      aria-label="Learn about Authenticator Lite"
-   style="background-color: #FFFFFF; color: #001F3F; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-lock"></i> LEARN ABOUT AUTHENTICATOR LITE
+   style="background-color: #FFFFFF; color: #ab6235; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-star"></i> CLICK HERE!
 </a>
 
 <a id="btn4" href="https://www.southark.edu/page/communications-studies"
@@ -154,6 +154,13 @@
      <i class="fa-solid fa-lock"></i> LEARN MORE!
 </a>
 
+<a id="btn7" href="https://www.southark.edu/page/multi-factor-authentication"
+   target="_top"
+     aria-label="Learn about Authenticator Lite"
+   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN MORE!
+</a>
+
 </div>
 </div>
 
@@ -166,6 +173,8 @@
   const btn3 = document.getElementById('btn3');
   const btn4 = document.getElementById('btn4');
   const btn5 = document.getElementById('btn5');
+  const btn6 = document.getElementById('btn6');
+  const btn7 = document.getElementById('btn7');
 
   const liveRegion = document.getElementById('aria-live');
 
@@ -179,39 +188,62 @@
       btn4.style.display = 'none';
       btn5.style.display = 'none';
       btn6.style.display = 'none';
+      btn7.style.display = 'none';
       liveRegion.textContent = "Apply Today button displayed";
-    } else if (t >= 7 && t < 14) {
+    } else if (t >= 7 && t < 13) {
       btn1.style.display = 'none';
       btn2.style.display = 'inline-block';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
       btn6.style.display = 'none';
-      liveRegion.textContent = "No button";
-    } else if (t >= 14 && t < 21) {
+      btn7.style.display = 'none';
+      liveRegion.textContent = "Apply for Housing";
+    } else if (t >= 13 && t < 19) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';  
-      btn3.style.display = 'none'; 
+      btn3.style.display = 'inline-block';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
       btn6.style.display = 'none';
+      btn7.style.display = 'none';
       liveRegion.textContent = "No button"; 
-    } else if (t >= 21 && t < 28) {
+    } else if (t >= 19 && t < 26) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
       btn6.style.display = 'none';
+      btn7.style.display = 'none';
       liveRegion.textContent = "No button";   
-    } else if (t >= 28 && t < 35) {
+    } else if (t >= 26 && t < 33) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
       btn6.style.display = 'none';
-      liveRegion.textContent = "No button";       
+      btn7.style.display = 'none';
+      liveRegion.textContent = "No button";   
+     } else if (t >= 33 && t < 40) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+      btn4.style.display = 'none';
+      btn5.style.display = 'none';
+      btn6.style.display = 'none';
+      btn7.style.display = 'none';
+      liveRegion.textContent = "No button";  
+    } else if (t >= 40 && t < 49) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+      btn4.style.display = 'none';
+      btn5.style.display = 'none';
+      btn6.style.display = 'none';
+      btn7.style.display = 'inline-block';
+      liveRegion.textContent = "Click Here";  
     } 
   });
 </script>
