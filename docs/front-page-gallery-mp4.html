@@ -107,7 +107,7 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage-11122025.mp4" type="video/mp4">
+  <source src="https://southarkcollege.github.io/website/front/frontpage-11182025.mp4" type="video/mp4">
   Your browser does not support the video tag. 
 </video>
 
@@ -119,11 +119,18 @@
    <i class="fa-solid fa-rocket"></i> APPLY TODAY!
 </a>
 
+<a id="btn2" href="https://www.southark.edu/advising"
+   target="_top"
+     aria-label="Registration for Spring 2026 is OPEN!"
+   style="background-color: #c49a6c; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-house"></i> REGISTER!
+</a>
+
 <a id="btn2" href="https://www.southark.edu/o/sac/page/housing"
    target="_top"
      aria-label="Apply for Housing!"
    style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-house"></i> CLICK HERE!
+   <i class="fa-solid fa-house"></i> APPLY!
 </a>
 
 <a id="btn3" href="https://www.southark.edu/o/sac/page/academic-shining-stars-november-2025"
@@ -131,13 +138,6 @@
      aria-label="Academic Shining Stars"
    style="background-color: #FFFFFF; color: #ab6235; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
      <i class="fa-solid fa-star"></i> CLICK HERE!
-</a>
-
-<a id="btn4" href="https://www.southark.edu/"
-   target="_top"
-     aria-label="SouthArk"
-   style="background-color: #000000; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-microphone"></i> NOTHING
 </a>
 
 <a id="btn5" href="https://www.southark.edu/page/multi-factor-authentication"
@@ -198,7 +198,7 @@
       btn6.style.display = 'none';
       btn7.style.display = 'none';
       liveRegion.textContent = "Apply Today button displayed";
-    } else if (t >= 7 && t < 12) {
+    } else if (t >= 7 && t < 13) {
       btn1.style.display = 'none';
       btn2.style.display = 'inline-block';
       btn3.style.display = 'none';
@@ -207,7 +207,7 @@
       btn6.style.display = 'none';
       btn7.style.display = 'none';
       liveRegion.textContent = "Apply for Housing";
-    } else if (t >= 13 && t < 20) {
+    } else if (t >= 13 && t < 19) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';  
       btn3.style.display = 'inline-block';
@@ -215,8 +215,8 @@
       btn5.style.display = 'none';
       btn6.style.display = 'none';
       btn7.style.display = 'none';
-      liveRegion.textContent = "No button"; 
-    } else if (t >= 20 && t < 26) {
+      liveRegion.textContent = "REGISTER!"; 
+    } else if (t >= 19 && t < 26) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
