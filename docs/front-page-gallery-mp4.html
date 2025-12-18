@@ -107,7 +107,7 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage-12-16-2025.mp4" type="video/mp4">
+  <source src="https://southarkcollege.github.io/website/front/frontpage-12-17-2025.mp4" type="video/mp4">
   Your browser does not support the video tag. 
 </video>
 
@@ -121,44 +121,44 @@
 
 <a id="btn2" href="https://www.southark.edu"
    target="_top"
+     aria-label="Christmas Break"
+   style="background-color: #c49a6c; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-person-walking"></i> No Button
+</a>
+
+<a id="btn3" href="https://www.southark.edu"
+   target="_top"
      aria-label="Walk-In Week"
    style="background-color: #c49a6c; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-person-walking"></i> No Button
 </a>
 
-<a id="btn3" href="https://southark.awardspring.com"
+<a id="btn4" href="https://southark.awardspring.com"
    target="_top"
      aria-label="Apply For Scholarships"
    style="background-color: #c49a6c; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-pencil"></i> APPLY
 </a>
 
-<a id="btn4" href="https://www.southark.edu/o/sac/page/academic-shining-stars-december-2025"
+<a id="btn5" href="https://www.southark.edu/o/sac/page/academic-shining-stars-december-2025"
    target="_top"
      aria-label="December Academic Shining Stars"
    style="background-color: #8a2228; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-star"></i> VISIT
 </a>
 
-<a id="btn5" href="https://www.southark.edu/advising"
+<a id="btn6" href="https://www.southark.edu/advising"
    target="_top"
      aria-label="Registration for Spring 2026 is OPEN!"
    style="background-color: #c49a6c; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-pencil"></i> REGISTER!
 </a>
 
-<a id="btn6" href="https://www.southark.edu/o/sac/page/housing"
+<a id="btn7" href="https://www.southark.edu/o/sac/page/housing"
    target="_top"
      aria-label="Apply for Housing!"
    style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-house"></i> APPLY!
-</a>
-
-<a id="btn7" href="https://www.southark.edu/page/multi-factor-authentication"
-   target="_top"
-     aria-label="Learn about Authenticator Lite"
-   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-lock"></i> LEARN MORE!
 </a>
 
 <a id="btn8" href="https://www.southark.edu/page/multi-factor-authentication"
@@ -191,7 +191,7 @@
   video.addEventListener('timeupdate', () => {
     const t = video.currentTime;
 
-    if (t >= 0 && t < 6) {
+    if (t >= 0 && t < 7) {
       btn1.style.display = 'inline-block';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
@@ -199,8 +199,9 @@
       btn5.style.display = 'none';
       btn6.style.display = 'none';
       btn7.style.display = 'none';
+      btn8.style.display = 'none';
       liveRegion.textContent = "Apply Today button displayed";
-    } else if (t >= 6 && t < 13) {
+    } else if (t >= 7 && t < 13) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
@@ -208,17 +209,19 @@
       btn5.style.display = 'none';
       btn6.style.display = 'none';
       btn7.style.display = 'none';
-      liveRegion.textContent = "none";
-    } else if (t >= 13 && t < 19) {
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Christmas";
+    } else if (t >= 14 && t < 19) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';  
-      btn3.style.display = 'inline-block';
+      btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
       btn6.style.display = 'none';
       btn7.style.display = 'none';
-      liveRegion.textContent = "REGISTER!"; 
-    } else if (t >= 19 && t < 26) {
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Walk-In"; 
+    } else if (t >= 20 && t < 26) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
@@ -226,7 +229,8 @@
       btn5.style.display = 'none';
       btn6.style.display = 'none';
       btn7.style.display = 'none';
-      liveRegion.textContent = "Apply";   
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Apply for Scholarships";   
     } else if (t >= 26 && t < 33) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
@@ -235,7 +239,8 @@
       btn5.style.display = 'inline-block';
       btn6.style.display = 'none';
       btn7.style.display = 'none';
-      liveRegion.textContent = "CLICK HERE";   
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Shining Stars";   
      } else if (t >= 33 && t < 40) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
@@ -244,8 +249,19 @@
       btn5.style.display = 'none';
       btn6.style.display = 'inline-block';
       btn7.style.display = 'none';
-      liveRegion.textContent = "LEARN MORE";  
-    } else if (t >= 40 && t < 49) {
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Register for School";  
+    } else if (t >= 40 && t < 46) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+      btn4.style.display = 'none';
+      btn5.style.display = 'none';
+      btn6.style.display = 'none';
+      btn7.style.display = 'inline-block';
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Apply for Housing";  
+    } else if (t >= 47 && t < 56) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
@@ -253,16 +269,8 @@
       btn5.style.display = 'none';
       btn6.style.display = 'none';
       btn7.style.display = 'none';
-      liveRegion.textContent = "No button";  
-    } else if (t >= 49 && t < 56) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      liveRegion.textContent = "No button";  
+      btn8.style.display = 'inline-block';
+      liveRegion.textContent = "Learn More";  
     } 
   });
 </script>
