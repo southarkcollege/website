@@ -10,7 +10,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-
 <style>
 
   .sr-only {
@@ -25,36 +24,40 @@
   border: 0 !important;
 }
 
-@media (max-width: 600px) {
+/* Make the mobile breakpoint more forgiving */
+@media (max-width: 768px) {
   #video-container .button-group {
-    /* position: fixed !important; */   /* old line is now commented out */
-    position: absolute !important;      /* new line added */
-    bottom: 80px !important;
+    position: fixed !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
+    /* Respect iOS safe area; keep it at the visual bottom */
+    bottom: max(16px, env(safe-area-inset-bottom) + 16px) !important;
+
     display: flex !important;
     flex-direction: column !important;
     gap: 10px !important;
     width: 60% !important;
-    max-width: 60% !important;
+    max-width: 420px !important;
     padding: 0 !important;
     z-index: 9999 !important;
   }
 
-  #btn1, #btn2, #btn3, #btn4, #btn5 {
+  /* Ensure the visible button fills the group width */
+  #btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7, #btn8 {
     width: 100% !important;
     font-size: 14px !important;
     text-align: center !important;
-    padding: 5px 10px !important;
-    display: none;
+    padding: 8px 12px !important;
+    display: none; /* JS will set inline display: inline-block */
   }
 
-  video {
-    margin-bottom: 160px !important;
+  /* If you only use fixed positioning, you don't need this margin */
+  #video-container video {
+    margin-bottom: 0 !important;
   }
 }
 
-#btn1, #btn2, #btn3, #btn4, #btn5 {
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7, #btn8 {
   display: none;
 }
 
@@ -104,41 +107,66 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage-10012025.mp4" type="video/mp4">
-  Your browser does not support the video tag.
+  <source src="https://southarkcollege.github.io/website/front/front-page-1-12-2026.mp4" type="video/mp4">
+  Your browser does not support the video tag. 
 </video>
 
 <div class="button-group">
-<a id="btn1" href="https://www.southark.edu/page/apply-to-southark-today"
-     aria-label="Apply today to South Arkansas College!"
+<a id="btn1" href="https://www.southark.edu/page/apply-to-southark-today" 
+   target="_top"
+     aria-label="Apply to South Arkansas College today!"
    style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-rocket"></i> APPLY TODAY!
 </a>
 
-<a id="btn2" href="https://www.southark.edu/page/academic-advising"
-     aria-label="Contact an Advisor Today!"
-   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-rocket"></i> APPLY TODAY!
+<a id="btn2" href="https://southark.awardspring.com"
+   target="_top"
+     aria-label="Apply For Scholarships."
+   style="background-color: #c49a6c; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-pencil"></i> APPLY
 </a>
 
-<a id="btn3" href="https://www.southark.edu/page/multi-factor-authentication"
+<a id="btn3" href="https://www.southark.edu/o/sac/page/housing"
+   target="_top"
+     aria-label="Apply for Housing!"
+   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-house"></i> APPLY!
+</a>
+
+<a id="btn4" href="https://www.southark.edu/page/multi-factor-authentication"
+   target="_top"
      aria-label="Learn about Authenticator Lite"
-   style="background-color: #FFFFFF; color: #001F3F; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-lock"></i> LEARN ABOUT AUTHENTICATOR LITE
-</a>
-
-<a id="btn4" href="https://www.southark.edu/page/communications-studies"
-     aria-label="Learn More about Communications Studies"
-   style="background-color: #000000; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-microphone"></i> LEARN MORE!
+   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN MORE!
 </a>
 
 <a id="btn5" href="https://www.southark.edu/page/multi-factor-authentication"
+   target="_top"
      aria-label="Learn about Authenticator Lite"
-   style="background-color: #FFFFFF; color: #001F3F; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-lock"></i> LEARN MORE
+   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN MORE!
 </a>
 
+<a id="btn6" href="https://www.southark.edu/page/multi-factor-authentication"
+   target="_top"
+     aria-label="Learn about Authenticator Lite"
+   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN MORE!
+</a>
+
+<a id="btn7" href="https://www.southark.edu/page/multi-factor-authentication"
+   target="_top"
+     aria-label="Learn about Authenticator Lite"
+   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN MORE!
+</a>
+
+<a id="btn8" href="https://www.southark.edu/page/multi-factor-authentication"
+   target="_top"
+     aria-label="Learn about Authenticator Lite"
+   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN MORE!
+</a>  
 </div>
 </div>
 
@@ -151,6 +179,9 @@
   const btn3 = document.getElementById('btn3');
   const btn4 = document.getElementById('btn4');
   const btn5 = document.getElementById('btn5');
+  const btn6 = document.getElementById('btn6');
+  const btn7 = document.getElementById('btn7');
+  const btn8 = document.getElementById('btn8');
 
   const liveRegion = document.getElementById('aria-live');
 
@@ -163,47 +194,42 @@
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
-      liveRegion.textContent = "    'inlinw-block'   Apply Today button displayed";
-    } else if (t >= 7 && t < 14) {
+      btn6.style.display = 'none';
+      btn7.style.display = 'none';
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Apply Today button displayed";
+    } else if (t >= 7 && t < 13) {
       btn1.style.display = 'none';
-      btn2.style.display = 'none';
+      btn2.style.display = 'inline-block';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
-      liveRegion.textContent = "No button displayed";
-    } else if (t >= 14 && t < 21) {
+      btn6.style.display = 'none';
+      btn7.style.display = 'none';
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Apply for Scholarships";
+    } else if (t >= 13 && t < 20) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';  
-      btn3.style.display = 'none'; 
+      btn3.style.display = 'inline-block';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
-      liveRegion.textContent = "No button"; 
-    } else if (t >= 21 && t < 28) {
+      btn6.style.display = 'none';
+      btn7.style.display = 'none';
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Housing"; 
+    } else if (t >= 20 && t < 28) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
-      btn4.style.display = 'none';
+      btn4.style.display = 'inline-block';
       btn5.style.display = 'none';
-      liveRegion.textContent = "No button";   
-    } else if (t >= 28 && t < 35) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      liveRegion.textContent = "No button";   
-    } else if (t >= 35 && t < 42) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'inline-block';
+      btn6.style.display = 'none';
+      btn7.style.display = 'none';
+      btn8.style.display = 'none';
       liveRegion.textContent = "MFA";   
     } 
   });
 </script>
 </body>
 </html>
-
-
-
