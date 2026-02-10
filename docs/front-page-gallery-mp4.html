@@ -107,7 +107,7 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/front-page-1-12-2026.mp4" type="video/mp4">
+  <source src="https://southarkcollege.github.io/website/front/frontpage-02-10-2026.mp4" type="video/mp4">
   Your browser does not support the video tag. 
 </video>
 
@@ -119,25 +119,25 @@
    <i class="fa-solid fa-rocket"></i> APPLY TODAY!
 </a>
 
-<a id="btn2" href="https://southark.awardspring.com"
+<a id="btn2" href="https://www.southark.edu"
+   target="_top"
+     aria-label="Valentine's Day"
+   style="background-color: #c49a6c; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-pencil"></i> APPLY
+</a>
+
+<a id="btn3" href="https://southark.awardspring.com"
    target="_top"
      aria-label="Apply For Scholarships."
    style="background-color: #c49a6c; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-pencil"></i> APPLY
 </a>
 
-<a id="btn3" href="https://www.southark.edu/o/sac/page/housing"
+<a id="btn4" href="https://www.southark.edu/o/sac/page/housing"
    target="_top"
      aria-label="Apply for Housing!"
    style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-house"></i> APPLY!
-</a>
-
-<a id="btn4" href="https://www.southark.edu/page/multi-factor-authentication"
-   target="_top"
-     aria-label="Learn about Authenticator Lite"
-   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-lock"></i> LEARN MORE!
 </a>
 
 <a id="btn5" href="https://www.southark.edu/page/multi-factor-authentication"
@@ -188,7 +188,7 @@
   video.addEventListener('timeupdate', () => {
     const t = video.currentTime;
 
-    if (t >= 0 && t < 7) {
+    if (t >= 0 && t < 6) {
       btn1.style.display = 'inline-block';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
@@ -200,15 +200,15 @@
       liveRegion.textContent = "Apply Today button displayed";
     } else if (t >= 7 && t < 13) {
       btn1.style.display = 'none';
-      btn2.style.display = 'inline-block';
+      btn2.style.display = 'none';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
       btn6.style.display = 'none';
       btn7.style.display = 'none';
       btn8.style.display = 'none';
-      liveRegion.textContent = "Apply for Scholarships";
-    } else if (t >= 13 && t < 20) {
+      liveRegion.textContent = "Valentines Day";
+    } else if (t >= 14 && t < 20) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';  
       btn3.style.display = 'inline-block';
@@ -217,13 +217,23 @@
       btn6.style.display = 'none';
       btn7.style.display = 'none';
       btn8.style.display = 'none';
-      liveRegion.textContent = "Housing"; 
-    } else if (t >= 20 && t < 28) {
+      liveRegion.textContent = "Scholarships"; 
+    } else if (t >= 20 && t < 26) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
       btn4.style.display = 'inline-block';
       btn5.style.display = 'none';
+      btn6.style.display = 'none';
+      btn7.style.display = 'none';
+      btn8.style.display = 'none';
+      liveRegion.textContent = "Housing";   
+    } else if (t >= 27 && t < 35) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+      btn4.style.display = 'none';
+      btn5.style.display = 'inline-block';
       btn6.style.display = 'none';
       btn7.style.display = 'none';
       btn8.style.display = 'none';
