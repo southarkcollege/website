@@ -1,0 +1,25 @@
+{
+  "tuition_per_credit": {
+    "in_district": 100,
+    "out_of_district": 115,
+    "out_of_state": 190
+  },
+  "housing": 2500,
+  "programs": {
+    "nursing": {
+      "hours_per_semester": 15,
+      "fees": {
+        "lab_fee": 75,
+        "technology_fee": 40,
+        "background_check": 120
+      }
+    },
+    "welding": {
+      "hours_per_semester": 12,
+      "fees": {
+        "equipment_fee": 60,
+        "technology_fee": 40
+      }
+    }
+  }
+}
