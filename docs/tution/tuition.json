@@ -5,6 +5,7 @@
     "out_of_state": 190
   },
   "housing": 2500,
+  "meal_plan": 3000,
   "programs": {
     "nursing": {
       "hours_per_semester": 15,
