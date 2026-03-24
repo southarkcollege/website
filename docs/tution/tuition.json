@@ -4,7 +4,7 @@
     "out_of_district": 115,
     "out_of_state": 190
   },
-  "housing": 2500,
+  "housing": 10200,
   "meal_plan": 3000,
   "academic_support_fee": 30,
   "technology": 22,
@@ -13,6 +13,12 @@
   "security": 7,
   "academic_enhancement": 4,
   "online_hybrid": 13,
+  "pell": 7395,
+  "seog": 600,
+  "freshman_recognition_scholarship": 1900,
+  "arkansas_challenge": 2000,
+  "arkansas_challenge_plus": 3000,
+  "basketball_award": 2000,
   "programs": {
     "nursing": {
       "hours_per_semester": 15
