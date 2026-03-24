@@ -6,27 +6,10 @@
   },
   "housing": 2500,
   "meal_plan": 3000,
-"academic_support_fee": 30,
-"technology": 22,
-"activity": 7,
-"support": 4,
-"security": 7,
-"academic_enhancement": 4,
-  "programs": {
-    "nursing": {
-      "hours_per_semester": 15,
-      "fees": {
-        "lab_fee": 75,
-        "technology_fee": 40,
-        "background_check": 120
-      }
-    },
-    "welding": {
-      "hours_per_semester": 12,
-      "fees": {
-        "equipment_fee": 60,
-        "technology_fee": 40
-      }
-    }
-  }
+  "academic_support_fee": 30,
+  "technology": 22,
+  "activity": 7,
+  "support": 4,
+  "security": 7,
+  "academic_enhancement": 4,
 }
