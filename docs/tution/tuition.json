@@ -12,4 +12,12 @@
   "support": 4,
   "security": 7,
   "academic_enhancement": 4,
+  "programs": {
+    "nursing": {
+      "hours_per_semester": 15
+    },
+    "welding": {
+      "hours_per_semester": 12
+    }
+  }
 }
