@@ -107,7 +107,7 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage-04022026.mp4" type="video/mp4">
+  <source src="https://southarkcollege.github.io/website/front/frontpage-04032026.mp4" type="video/mp4">
   Your browser does not support the video tag. 
 </video>
 
@@ -119,18 +119,19 @@
    <i class="fa-solid fa-rocket"></i> APPLY TODAY!
 </a>
 
-<a id="btn2" href="https://www.southark.edu/advising"
+<a id="btn2" href="https://www.southark.edu
+   target="_top"
+     aria-label="Supernova Sale"
+   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN MORE!
+</a>
+
+
+<a id="btn3" href="https://www.southark.edu/advising"
    target="_top"
      aria-label="Register for Fall & Summer."
    style="background-color: #c49a6c; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-pencil"></i> MORE INFO
-</a>
-
-<a id="btn3" href="https://www.southark.edu"
-   target="_top"
-     aria-label="Transfer Fair"
-   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-lock"></i> LEARN MORE!
 </a>
 
 <a id="btn4" href="https://www.southark.edu"
@@ -138,42 +139,43 @@
      aria-label="Transfer Fair"
    style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
      <i class="fa-solid fa-lock"></i> LEARN MORE!
+</a>
+
+<a id="btn5" href="https://www.southark.edu"
+   target="_top"
+     aria-label="Transfer Fair"
+   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN MORE!
 </a> 
   
-<a id="btn5" href="https://www.southark.edu/o/sac/page/howard-hall-construction"
+<a id="btn6" href="https://www.southark.edu/o/sac/page/howard-hall-construction"
    target="_top"
      aria-label="Howard Hall Construction."
    style="background-color: #8a2228; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-house"></i> VISIT!
 </a>
 
-<a id="btn6" href="https://www.southark.edu/o/sac/page/bill-howard-ball-park"
+<a id="btn7" href="https://www.southark.edu/o/sac/page/bill-howard-ball-park"
    target="_top"
      aria-label="Bill Howard Ballpark."
    style="background-color: #8a2228; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-baseball"></i> VISIT!
 </a>
   
-<a id="btn7" href="https://www.southark.edu/o/sac/page/housing"
+<a id="btn8" href="https://www.southark.edu/o/sac/page/housing"
    target="_top"
      aria-label="Apply for Housing!"
    style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-house"></i> APPLY!
 </a>
   
-<a id="btn8" href="https://www.southark.edu/page/multi-factor-authentication"
-   target="_top"
-     aria-label="Learn about Authenticator Lite"
-   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-lock"></i> LEARN MORE!
-</a>
-
 <a id="btn9" href="https://www.southark.edu/page/multi-factor-authentication"
    target="_top"
      aria-label="Learn about Authenticator Lite"
    style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
      <i class="fa-solid fa-lock"></i> LEARN MORE!
 </a>
+
 
  
 </div>
@@ -208,10 +210,10 @@
       btn7.style.display = 'none';
       btn8.style.display = 'none';
       btn9.style.display = 'none';
-      liveRegion.textContent = "Apply Today";
+      liveRegion.textContent = "Supernova Sale";
     } else if (t >= 7 && t < 14) {
       btn1.style.display = 'none';
-      btn2.style.display = 'inline-block';
+      btn2.style.display = 'none';
       btn3.style.display = 'none';
       btn4.style.display = 'none';
       btn5.style.display = 'none';
@@ -219,7 +221,7 @@
       btn7.style.display = 'none';
       btn8.style.display = 'none';
       btn9.style.display = 'none';
-      liveRegion.textContent = "Registration"; 
+      liveRegion.textContent = "Apply Today";
     } else if (t >= 14 && t < 21) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';  
@@ -230,7 +232,7 @@
       btn7.style.display = 'none';
       btn8.style.display = 'none';
       btn9.style.display = 'none';
-      liveRegion.textContent = "UALR";  
+      liveRegion.textContent = "Registration";   
     } else if (t >= 21 && t < 28) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
@@ -241,7 +243,7 @@
       btn7.style.display = 'none';
       btn8.style.display = 'none';
       btn9.style.display = 'none';
-      liveRegion.textContent = "SAU";  
+      liveRegion.textContent = "UALR";   
     } else if (t >= 28 && t < 35) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
@@ -252,7 +254,7 @@
       btn7.style.display = 'none';
       btn8.style.display = 'none';
       btn9.style.display = 'none';
-      liveRegion.textContent = "Howard Hall";   
+      liveRegion.textContent = "SAU";   
     } else if (t >= 35 && t < 42) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
@@ -263,8 +265,19 @@
       btn7.style.display = 'none';
       btn8.style.display = 'none';
       btn9.style.display = 'none';
+      liveRegion.textContent = "Howard Hall"; 
+   } else if (t >= 42 && t < 49) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+      btn4.style.display = 'none';
+      btn5.style.display = 'none';
+      btn6.style.display = 'none';
+      btn7.style.display = 'inline-block';
+      btn8.style.display = 'none';
+      btn9.style.display = 'none';
       liveRegion.textContent = "Bill Howard Ballpark"; 
-   } else if (t >= 42 && t < 48) {
+       } else if (t >= 49 && t < 56) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
