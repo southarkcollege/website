@@ -107,7 +107,7 @@
 <div id="video-container">
 <video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
   aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage-04062026.mp4" type="video/mp4">
+  <source src="https://southarkcollege.github.io/website/front/frontpage-04072026.mp4" type="video/mp4">
   Your browser does not support the video tag. 
 </video>
 
@@ -143,9 +143,9 @@
 
 <a id="btn5" href="https://www.southark.edu"
    target="_top"
-     aria-label="Transfer Fair"
-   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-lock"></i> LEARN MORE!
+     aria-label="ATU Transfer Fair"
+   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+   <i class="fa-solid fa-house"></i> APPLY!
 </a>
 
 <a id="btn6" href="https://www.southark.edu"
@@ -153,28 +153,30 @@
      aria-label="Transfer Fair"
    style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
      <i class="fa-solid fa-lock"></i> LEARN MORE!
+</a>
+
+<a id="btn7" href="https://www.southark.edu"
+   target="_top"
+     aria-label="SAU Transfer Fair"
+   style="background-color: #FFFFFF; color: #146ab5; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+     <i class="fa-solid fa-lock"></i> LEARN MORE!
 </a> 
   
-<a id="btn7" href="https://www.southark.edu/o/sac/page/howard-hall-construction"
+<a id="btn8" href="https://www.southark.edu/o/sac/page/howard-hall-construction"
    target="_top"
      aria-label="Howard Hall Construction."
    style="background-color: #8a2228; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-house"></i> VISIT!
 </a>
 
-<a id="btn8" href="https://www.southark.edu/o/sac/page/bill-howard-ball-park"
+<a id="btn9" href="https://www.southark.edu/o/sac/page/bill-howard-ball-park"
    target="_top"
      aria-label="Bill Howard Ballpark."
    style="background-color: #8a2228; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
    <i class="fa-solid fa-baseball"></i> VISIT!
 </a>
   
-<a id="btn9" href="https://www.southark.edu/o/sac/page/housing"
-   target="_top"
-     aria-label="Apply for Housing!"
-   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-house"></i> APPLY!
-</a>
+
   
 
 
@@ -256,7 +258,7 @@
       btn7.style.display = 'none';
       btn8.style.display = 'none';
       btn9.style.display = 'none';
-      liveRegion.textContent = "Transfer Fair UALR";   
+      liveRegion.textContent = "Transfer Fair ATU";   
     } else if (t >= 35 && t < 42) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
@@ -267,8 +269,19 @@
       btn7.style.display = 'none';
       btn8.style.display = 'none';
       btn9.style.display = 'none';
-      liveRegion.textContent = "Transfer Fair SAU"; 
+      liveRegion.textContent = "Transfer Fair UALR"; 
    } else if (t >= 42 && t < 49) {
+      btn1.style.display = 'none';
+      btn2.style.display = 'none';
+      btn3.style.display = 'none';
+      btn4.style.display = 'none';
+      btn5.style.display = 'none';
+      btn6.style.display = 'none';
+      btn7.style.display = 'none';
+      btn8.style.display = 'none';
+      btn9.style.display = 'none';
+      liveRegion.textContent = "Transfer Fair SAU"; 
+   } else if (t >= 49 && t < 56) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
@@ -278,8 +291,8 @@
       btn7.style.display = 'inline-block';
       btn8.style.display = 'none';
       btn9.style.display = 'none';
-      liveRegion.textContent = "Howard Hall Construction"; 
-   } else if (t >= 49 && t < 56) {
+      liveRegion.textContent = "Howard Hall Construction";
+    } else if (t >= 56 && t < 62) {
       btn1.style.display = 'none';
       btn2.style.display = 'none';
       btn3.style.display = 'none';
@@ -290,17 +303,6 @@
       btn8.style.display = 'inline-block';
       btn9.style.display = 'none';
       liveRegion.textContent = "Bill Howard Ballpark";
-    } else if (t >= 56 && t < 62) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'none';
-      btn9.style.display = 'inline-block';
-      liveRegion.textContent = "Housing";
     } 
   });
 </script>
