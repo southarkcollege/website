@@ -368,6 +368,23 @@
       currentSlideIndex = (index + slides.length) % slides.length;
       const slide = slides[currentSlideIndex];
 
+
+  // ADD THIS BLOCK
+  if (slide.showButton === false) {
+    activeCta.style.display = 'none';
+  } else {
+    activeCta.style.display = 'inline-flex';
+
+    activeCta.href = slide.href;
+    activeCta.className = slide.className;
+    activeCta.setAttribute('aria-label', slide.ariaLabel);
+    activeCta.innerHTML = `
+      <i class="${slide.icon}" aria-hidden="true"></i>
+      <span>${slide.text}</span>
+    `;
+  }
+      
+
       activeCta.href = slide.href;
       activeCta.className = slide.className;
       activeCta.setAttribute('aria-label', slide.ariaLabel);
