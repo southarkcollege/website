@@ -2,309 +2,472 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>South Arkansas College</title>
+  <title>South Arkansas College Front Page Slideshow</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <style>
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
 
-<style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    }
 
-  .sr-only {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
+    .front-slider {
+      max-width: 100%;
+      margin: 0 auto;
+    }
 
-/* Make the mobile breakpoint more forgiving */
-@media (max-width: 768px) {
-  #video-container .button-group {
-    position: fixed !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    /* Respect iOS safe area; keep it at the visual bottom */
-    bottom: max(16px, env(safe-area-inset-bottom) + 16px) !important;
+    .media-frame {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
 
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    width: 60% !important;
-    max-width: 420px !important;
-    padding: 0 !important;
-    z-index: 9999 !important;
-  }
+    .media-frame video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
 
-  /* Ensure the visible button fills the group width */
-  #btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7, #btn8, #btn9 {
-    width: 100% !important;
-    font-size: 14px !important;
-    text-align: center !important;
-    padding: 8px 12px !important;
-    display: none; /* JS will set inline display: inline-block */
-  }
+    .active-cta-wrap {
+      position: absolute;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      z-index: 15;
+      width: auto;
+      max-width: calc(100% - 120px);
+      text-align: center;
+    }
 
-  /* If you only use fixed positioning, you don't need this margin */
-  #video-container video {
-    margin-bottom: 0 !important;
-  }
-}
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      border: 2px solid transparent;
+      box-sizing: border-box;
+      text-align: center;
+      background: #8a2228;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
 
-#btn1, #btn2, #btn3, #btn4, #btn5, #btn6, #btn7, #btn8, #btn9 {
-  display: none;
-}
+    .cta-link.light-blue {
+      background: #84b9d0;
+      color: #111111;
+    }
 
-#video-container {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-}
+    .cta-link.gold {
+      background: #c49a6c;
+      color: #111111;
+    }
 
-#video-container video {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    .cta-link:focus,
+    .icon-control:focus {
+      outline: 3px solid #ffffff;
+      outline-offset: 2px;
+      border-color: #111111;
+    }
 
-#video-container .button-group {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 100%; /* or max-width you want */
-  display: flex;
-  gap: 20px;
-  justify-content: center; /* centers buttons except #btn3 */
-  transform: none; /* remove translateX */
-}
-  
-#video-container button {
-  padding: 10px 10px !important;
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 28px !important;
-  background-color: #8a2228 !important;
-  color: white !important;
-  border: none !important;
-  cursor: pointer !important;
-  border-radius: 5px !important;
-}
+    .icon-control {
+      position: absolute;
+      z-index: 20;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.85);
+      background: rgba(17,17,17,0.72);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background 0.2s ease;
+    }
 
-</style>
+    .icon-control:hover {
+      background: rgba(17,17,17,0.88);
+    }
+
+    .icon-control i {
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .prev-control {
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .next-control {
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .pause-control {
+      left: 12px;
+      bottom: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .active-cta-wrap {
+        bottom: 18px;
+        max-width: calc(100% - 100px);
+      }
+
+      .cta-link {
+        font-size: 1rem;
+        padding: 10px 14px;
+      }
+
+      .icon-control {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        min-height: 38px;
+      }
+
+      .icon-control i {
+        font-size: 13px;
+      }
+
+      .prev-control {
+        left: 8px;
+      }
+
+      .next-control {
+        right: 8px;
+      }
+
+      .pause-control {
+        left: 8px;
+        bottom: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<h1 class="sr-only">South Arkansas College Front Page Animation</h1>
+  <section class="front-slider" aria-labelledby="front-slider-heading">
+    <h1 id="front-slider-heading" class="sr-only">South Arkansas College featured announcements</h1>
 
-<div id="video-container">
-<video id="SouthArk" width="100%" autoplay muted playsinline loop role="img"
-  aria-label="Animated video introducing South Arkansas College with multiple sections: Apply Today, Contact an Advisor, Search Jobs, and more." style="width: 100%; height: auto;">
-  <source src="https://southarkcollege.github.io/website/front/frontpage-04072026.mp4" type="video/mp4">
-  Your browser does not support the video tag. 
-</video>
+    <p id="front-slider-description" class="sr-only">
+      This section includes an autoplaying promotional video with rotating featured announcements.
+      Use the previous, next, or pause controls to move through the announcements or stop the motion.
+    </p>
 
-<div class="button-group">
-<a id="btn1" href="https://www.southark.edu/page/apply-to-southark-today" 
-   target="_top"
-     aria-label="Apply to South Arkansas College today!"
-   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-rocket"></i> APPLY TODAY!
-</a>
+    <div class="media-frame">
+      <video
+        id="SouthArk"
+        autoplay
+        muted
+        playsinline
+        loop
+        preload="metadata"
+        aria-describedby="front-slider-description"
+      >
+        <source src="https://southarkcollege.github.io/website/front/frontpage-04072026.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
 
-<a id="btn2" href="https://southarkansascollegear.sites.thrillshare.com/o/mfl/page/community-education"
-   target="_top"
-     aria-label="Arts in April Calendar"
-   style="background-color: #84b9d0; color: #ffffff; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-paintbrush"></i> CALENDAR!
-</a>
+      <button
+        type="button"
+        id="prevSlide"
+        class="icon-control prev-control"
+        aria-label="Previous announcement"
+        title="Previous announcement"
+      >
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
 
-<a id="btn3" href="https://www.southark.edu
-   target="_top"
-     aria-label="Supernova Sale"
-   style="background-color: #C49A6C; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-lock"></i> LEARN MORE!
-</a>
+      <button
+        type="button"
+        id="nextSlide"
+        class="icon-control next-control"
+        aria-label="Next announcement"
+        title="Next announcement"
+      >
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+
+      <div class="active-cta-wrap">
+        <a
+          id="activeCta"
+          class="cta-link"
+          href="https://www.southark.edu/page/apply-to-southark-today"
+          target="_top"
+          aria-label="Apply to SouthArk today"
+        >
+          <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+          <span>Apply Today!</span>
+        </a>
+      </div>
+
+      <button
+        type="button"
+        id="motionToggle"
+        class="icon-control pause-control"
+        aria-controls="SouthArk"
+        aria-pressed="false"
+        aria-label="Pause motion"
+        title="Pause motion"
+      >
+        <i class="fa-solid fa-pause" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div id="aria-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  </section>
+
+  <script>
+    const video = document.getElementById('SouthArk');
+    const prevSlideBtn = document.getElementById('prevSlide');
+    const nextSlideBtn = document.getElementById('nextSlide');
+    const motionToggle = document.getElementById('motionToggle');
+    const activeCta = document.getElementById('activeCta');
+    const liveRegion = document.getElementById('aria-live');
+
+    const slides = [
+      {
+        start: 0,
+        end: 7,
+        // showButton: false,
+        announce: 'Apply Today',
+        text: 'Apply Today!',
+        href: 'https://www.southark.edu/page/apply-to-southark-today',
+        ariaLabel: 'Apply to South Arkansas College today',
+        icon: 'fa-solid fa-rocket',
+        className: 'cta-link'
+      },
+      {
+        start: 7,
+        end: 14,
+        // showButton: false,
+        announce: 'Arts in April Calendar',
+        text: 'Calendar!',
+        href: 'https://southarkansascollegear.sites.thrillshare.com/o/mfl/page/community-education',
+        ariaLabel: 'Arts in April Calendar',
+        icon: 'fa-solid fa-paintbrush',
+        className: 'cta-link light-blue'
+      },
+      {
+        start: 14,
+        end: 21,
+        showButton: false,
+        announce: 'Supernova Sale',
+        // text: 'Learn More!',
+        // href: 'https://www.southark.edu',
+        // ariaLabel: 'Supernova Sale',
+        // icon: 'fa-solid fa-lock',
+        // className: 'cta-link gold'
+      },
+      {
+        start: 21,
+        end: 28,
+        // showButton: false,
+        announce: 'Register for Fall and Summer',
+        text: 'Register',
+        href: 'https://www.southark.edu/advising',
+        ariaLabel: 'Register for Fall and Summer',
+        icon: 'fa-solid fa-pencil',
+        className: 'cta-link'
+      },
+      {
+        start: 28,
+        end: 35,
+        showButton: false,
+        announce: 'ATU Transfer Fair',
+        // text: 'Apply!',
+        // href: 'https://www.southark.edu',
+        // ariaLabel: 'ATU Transfer Fair',
+        // icon: 'fa-solid fa-house',
+        // className: 'cta-link'
+      },
+      {
+        start: 35,
+        end: 42,
+        showButton: false,
+        announce: 'Transfer Fair UALR',
+        // text: 'Learn More!',
+        // href: 'https://www.southark.edu',
+        // ariaLabel: 'Transfer Fair UALR',
+        // icon: 'fa-solid fa-house',
+        // className: 'cta-link'
+      },
+      {
+        start: 42,
+        end: 49,
+        showButton: false,
+        announce: 'Transfer Fair SAU',
+        // text: 'Learn More!',
+        // href: 'https://www.southark.edu',
+        // ariaLabel: 'SAU Transfer Fair',
+        // icon: 'fa-solid fa-house',
+        // className: 'cta-link'
+      },
+      {
+        start: 49,
+        end: 56,
+        // showButton: false,
+        announce: 'Howard Hall Construction',
+        text: 'Visit!',
+        href: 'https://www.southark.edu/o/sac/page/howard-hall-construction',
+        ariaLabel: 'Howard Hall Construction',
+        icon: 'fa-solid fa-house',
+        className: 'cta-link'
+      },
+      {
+        start: 56,
+        end: 62,
+        // showButton: false,
+        announce: 'Bill Howard Ballpark',
+        text: 'Visit!',
+        href: 'https://www.southark.edu/o/sac/page/bill-howard-ball-park',
+        announce: 'Bill Howard Ballpark',
+        ariaLabel: 'Bill Howard Ballpark',
+        icon: 'fa-solid fa-baseball',
+        className: 'cta-link'
+      }
+    ];
+
+    let currentSlideIndex = 0;
+    let lastAnnouncement = '';
+
+    function updateSlide(index, announce = true) {
+      currentSlideIndex = (index + slides.length) % slides.length;
+      const slide = slides[currentSlideIndex];
 
 
-<a id="btn4" href="https://www.southark.edu/advising"
-   target="_top"
-     aria-label="Register for Fall & Summer."
-   style="background-color: #8A2228; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-pencil"></i> REGISTER
-</a>
+  // ADD THIS BLOCK
+  if (slide.showButton === false) {
+    activeCta.style.display = 'none';
+  } else {
+    activeCta.style.display = 'inline-flex';
 
-<a id="btn5" href="https://www.southark.edu"
-   target="_top"
-     aria-label="ATU Transfer Fair"
-   style="background-color: #8a2228; color: white; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-house"></i> APPLY!
-</a>
+    activeCta.href = slide.href;
+    activeCta.className = slide.className;
+    activeCta.setAttribute('aria-label', slide.ariaLabel);
+    activeCta.innerHTML = `
+      <i class="${slide.icon}" aria-hidden="true"></i>
+      <span>${slide.text}</span>
+    `;
+  }
+      
 
-<a id="btn6" href="https://www.southark.edu"
-   target="_top"
-     aria-label="Transfer Fair"
-   style="background-color: #8a2228F; color: #ffffff; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-house"></i> LEARN MORE!
-</a>
+      activeCta.href = slide.href;
+      activeCta.className = slide.className;
+      activeCta.setAttribute('aria-label', slide.ariaLabel);
+      activeCta.innerHTML = `
+        <i class="${slide.icon}" aria-hidden="true"></i>
+        <span>${slide.text}</span>
+      `;
 
-<a id="btn7" href="https://www.southark.edu"
-   target="_top"
-     aria-label="SAU Transfer Fair"
-   style="background-color: #8a2228; color: #ffffff; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-     <i class="fa-solid fa-house"></i> LEARN MORE!
-</a> 
-  
-<a id="btn8" href="https://www.southark.edu/o/sac/page/howard-hall-construction"
-   target="_top"
-     aria-label="Howard Hall Construction."
-   style="background-color: #8a2228; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-house"></i> VISIT!
-</a>
+      if (announce && slide.announce !== lastAnnouncement) {
+        liveRegion.textContent = slide.announce;
+        lastAnnouncement = slide.announce;
+      }
+    }
 
-<a id="btn9" href="https://www.southark.edu/o/sac/page/bill-howard-ball-park"
-   target="_top"
-     aria-label="Bill Howard Ballpark."
-   style="background-color: #8a2228; color: #FFFFFF; font-size: 28px; padding: 10px 24px; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
-   <i class="fa-solid fa-baseball"></i> VISIT!
-</a>
-  
+    function syncSlideToTime() {
+      const time = video.currentTime;
+      const foundIndex = slides.findIndex(slide => time >= slide.start && time < slide.end);
+      if (foundIndex !== -1 && foundIndex !== currentSlideIndex) {
+        updateSlide(foundIndex, true);
+      }
+    }
 
-  
+    function goToSlide(index) {
+      const safeIndex = (index + slides.length) % slides.length;
+      currentSlideIndex = safeIndex;
+      video.currentTime = slides[safeIndex].start + 0.05;
+      updateSlide(safeIndex, true);
+    }
 
+    function setPauseState(isPaused) {
+      motionToggle.setAttribute('aria-pressed', isPaused ? 'true' : 'false');
+      motionToggle.setAttribute('aria-label', isPaused ? 'Play motion' : 'Pause motion');
+      motionToggle.setAttribute('title', isPaused ? 'Play motion' : 'Pause motion');
+      motionToggle.innerHTML = isPaused
+        ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
+        : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+    }
 
+// Fix Forward Back
+function getCurrentSlideIndexFromTime() {
+  const time = video.currentTime;
+  const foundIndex = slides.findIndex(
+    slide => time >= slide.start && time < slide.end
+  );
+  return foundIndex !== -1 ? foundIndex : 0;
+}
+//
+    
+// Previous Next
+prevSlideBtn.addEventListener('click', () => {
+  video.pause();
+  setPauseState(true);
 
- 
-</div>
-</div>
+  const actualIndex = getCurrentSlideIndexFromTime();
+  goToSlide(actualIndex - 1);
+});
 
-<div id="aria-live" class="sr-only" aria-live="polite"></div>
+nextSlideBtn.addEventListener('click', () => {
+  video.pause();
+  setPauseState(true);
 
-<script>
-  const video = document.getElementById('SouthArk');
-  const btn1 = document.getElementById('btn1');
-  const btn2 = document.getElementById('btn2');
-  const btn3 = document.getElementById('btn3');
-  const btn4 = document.getElementById('btn4');
-  const btn5 = document.getElementById('btn5');
-  const btn6 = document.getElementById('btn6');
-  const btn7 = document.getElementById('btn7');
-  const btn8 = document.getElementById('btn8');
-  const btn9 = document.getElementById('btn9');
+  const actualIndex = getCurrentSlideIndexFromTime();
+  goToSlide(actualIndex + 1);
+});
+//
+    motionToggle.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        setPauseState(false);
+      } else {
+        video.pause();
+        setPauseState(true);
+      }
+    });
 
-  const liveRegion = document.getElementById('aria-live');
+    video.addEventListener('timeupdate', syncSlideToTime);
+    video.addEventListener('loadedmetadata', () => updateSlide(0, false));
+    video.addEventListener('play', () => setPauseState(false));
+    video.addEventListener('pause', () => setPauseState(true));
+    video.addEventListener('ended', () => updateSlide(0, false));
 
-  video.addEventListener('timeupdate', () => {
-    const t = video.currentTime;
-
-    if (t >= 0 && t < 7) {
-      btn1.style.display = 'inline-block';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'none';
-      btn9.style.display = 'none';
-      liveRegion.textContent = "Apply Today";
-    } else if (t >= 7 && t < 14) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'inline-block';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'none';
-      btn9.style.display = 'none';
-      liveRegion.textContent = "Arts in April";
-    } else if (t >= 14 && t < 21) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';  
-      btn3.style.display = 'none'; 
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'none';
-      btn9.style.display = 'none';
-      liveRegion.textContent = "SuperNova Sale";   
-    } else if (t >= 21 && t < 28) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'inline-block';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'none';
-      btn9.style.display = 'none';
-      liveRegion.textContent = "Registration";   
-    } else if (t >= 28 && t < 35) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'none';
-      btn9.style.display = 'none';
-      liveRegion.textContent = "Transfer Fair ATU";   
-    } else if (t >= 35 && t < 42) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'none';
-      btn9.style.display = 'none';
-      liveRegion.textContent = "Transfer Fair UALR"; 
-   } else if (t >= 42 && t < 49) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'none';
-      btn9.style.display = 'none';
-      liveRegion.textContent = "Transfer Fair SAU"; 
-   } else if (t >= 49 && t < 56) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'inline-block';
-      btn9.style.display = 'none';
-      liveRegion.textContent = "Howard Hall Construction";
-    } else if (t >= 56 && t < 62) {
-      btn1.style.display = 'none';
-      btn2.style.display = 'none';
-      btn3.style.display = 'none';
-      btn4.style.display = 'none';
-      btn5.style.display = 'none';
-      btn6.style.display = 'none';
-      btn7.style.display = 'none';
-      btn8.style.display = 'none';
-      btn9.style.display = 'inline-block';
-      liveRegion.textContent = "Bill Howard Ballpark";
-    } 
-  });
-</script>
+    updateSlide(0, false);
+    setPauseState(video.paused);
+  </script>
 </body>
 </html>
