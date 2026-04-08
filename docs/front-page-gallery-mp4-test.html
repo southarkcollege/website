@@ -423,18 +423,33 @@
         : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
     }
 
-    prevSlideBtn.addEventListener('click', () => {
-      video.pause();
-      setPauseState(true);
-      goToSlide(currentSlideIndex - 1);
-    });
+// Fix Forward Back
+function getCurrentSlideIndexFromTime() {
+  const time = video.currentTime;
+  const foundIndex = slides.findIndex(
+    slide => time >= slide.start && time < slide.end
+  );
+  return foundIndex !== -1 ? foundIndex : 0;
+}
+//
+    
+// Previous Next
+prevSlideBtn.addEventListener('click', () => {
+  video.pause();
+  setPauseState(true);
 
-    nextSlideBtn.addEventListener('click', () => {
-      video.pause();
-      setPauseState(true);
-      goToSlide(currentSlideIndex + 1);
-    });
+  const actualIndex = getCurrentSlideIndexFromTime();
+  goToSlide(actualIndex - 1);
+});
 
+nextSlideBtn.addEventListener('click', () => {
+  video.pause();
+  setPauseState(true);
+
+  const actualIndex = getCurrentSlideIndexFromTime();
+  goToSlide(actualIndex + 1);
+});
+//
     motionToggle.addEventListener('click', () => {
       if (video.paused) {
         video.play();
