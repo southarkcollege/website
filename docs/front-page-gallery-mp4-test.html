@@ -36,6 +36,7 @@
       position: relative;
       width: 100%;
       max-width: 100%;
+      overflow: hidden;
     }
 
     .media-frame video {
@@ -44,22 +45,18 @@
       height: auto;
     }
 
-    .overlay-controls {
+    .active-cta-wrap {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 32px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      padding: 0 16px;
-      z-index: 20;
-      flex-wrap: wrap;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      z-index: 15;
+      width: auto;
+      max-width: calc(100% - 120px);
+      text-align: center;
     }
 
-    .cta-link,
-    .motion-toggle {
+    .cta-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -74,80 +71,108 @@
       line-height: 1.2;
       border: 2px solid transparent;
       box-sizing: border-box;
+      text-align: center;
+      background: #8a2228;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    .cta-link.light-blue {
+      background: #84b9d0;
+      color: #111111;
+    }
+
+    .cta-link.gold {
+      background: #c49a6c;
+      color: #111111;
     }
 
     .cta-link:focus,
-    .motion-toggle:focus {
+    .icon-control:focus {
       outline: 3px solid #ffffff;
       outline-offset: 2px;
       border-color: #111111;
     }
 
-    .motion-toggle {
-      background: #111111;
+    .icon-control {
+      position: absolute;
+      z-index: 20;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.85);
+      background: rgba(17,17,17,0.72);
       color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background 0.2s ease;
     }
 
-    .cta-link {
-      background: #8a2228;
-      color: #ffffff;
+    .icon-control:hover {
+      background: rgba(17,17,17,0.88);
     }
 
-    .cta-link.light-blue {
-      background: #84b9d0;
-      color: #111111; /* improved contrast */
+    .icon-control i {
+      font-size: 14px;
+      pointer-events: none;
     }
 
-    .cta-link.gold {
-      background: #c49a6c;
-      color: #111111; /* improved contrast */
+    .prev-control {
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
-    .cta-link.hidden {
-      display: none;
+    .next-control {
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
-    .slide-links {
-      margin: 0;
-      padding: 20px 18px 8px 18px;
-      background: #ffffff;
-    }
-
-    .slide-links h2 {
-      margin: 0 0 12px 0;
-      font-size: 1.125rem;
-      line-height: 1.3;
-    }
-
-    .slide-links ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .slide-links li {
-      margin: 0 0 10px 0;
-      line-height: 1.5;
-    }
-
-    .slide-links a {
-      color: #8a2228;
-      font-weight: 600;
+    .pause-control {
+      right: 12px;
+      bottom: 12px;
     }
 
     @media (max-width: 768px) {
-      .overlay-controls {
-        position: static;
-        justify-content: center;
-        padding: 14px 12px;
-        background: #ffffff;
+      .active-cta-wrap {
+        bottom: 18px;
+        max-width: calc(100% - 100px);
       }
 
-      .cta-link,
-      .motion-toggle {
-        width: 100%;
-        max-width: 420px;
+      .cta-link {
         font-size: 1rem;
+        padding: 10px 14px;
+      }
+
+      .icon-control {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        min-height: 38px;
+      }
+
+      .icon-control i {
+        font-size: 13px;
+      }
+
+      .prev-control {
+        left: 8px;
+      }
+
+      .next-control {
+        right: 8px;
+      }
+
+      .pause-control {
+        right: 8px;
+        bottom: 8px;
       }
     }
   </style>
@@ -158,9 +183,8 @@
     <h1 id="front-slider-heading" class="sr-only">South Arkansas College featured announcements</h1>
 
     <p id="front-slider-description" class="sr-only">
-      This section includes an autoplaying promotional video with rotating calls to action.
-      Use the Pause Motion button to stop the animation. A full list of all featured links
-      appears below the video and remains available at all times.
+      This section includes an autoplaying promotional video with rotating featured announcements.
+      Use the previous, next, or pause controls to move through the announcements or stop the motion.
     </p>
 
     <div class="media-frame">
@@ -177,43 +201,50 @@
         Your browser does not support the video tag.
       </video>
 
-      <div class="overlay-controls">
-        <button
-          type="button"
-          id="motionToggle"
-          class="motion-toggle"
-          aria-controls="SouthArk"
-          aria-pressed="false"
-        >
-          <i class="fa-solid fa-pause" aria-hidden="true"></i>
-          <span id="motionToggleText">Pause Motion</span>
-        </button>
+      <button
+        type="button"
+        id="prevSlide"
+        class="icon-control prev-control"
+        aria-label="Previous announcement"
+        title="Previous announcement"
+      >
+        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      </button>
 
+      <button
+        type="button"
+        id="nextSlide"
+        class="icon-control next-control"
+        aria-label="Next announcement"
+        title="Next announcement"
+      >
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      </button>
+
+      <div class="active-cta-wrap">
         <a
           id="activeCta"
           class="cta-link"
           href="https://www.southark.edu/page/apply-to-southark-today"
           target="_top"
+          aria-label="Apply to SouthArk today"
         >
           <i class="fa-solid fa-rocket" aria-hidden="true"></i>
-          <span id="activeCtaText">Apply Today!</span>
+          <span>Apply Today!</span>
         </a>
       </div>
-    </div>
 
-    <div class="slide-links" aria-label="All featured announcements and links">
-      <h2>Featured links</h2>
-      <ul>
-        <li><a href="https://www.southark.edu/page/apply-to-southark-today" target="_top">Apply to SouthArk today</a></li>
-        <li><a href="https://southarkansascollegear.sites.thrillshare.com/o/mfl/page/community-education" target="_top">Arts in April calendar</a></li>
-        <li><a href="https://www.southark.edu" target="_top">Supernova Sale</a></li>
-        <li><a href="https://www.southark.edu/advising" target="_top">Register for Fall &amp; Summer</a></li>
-        <li><a href="https://www.southark.edu" target="_top">ATU Transfer Fair</a></li>
-        <li><a href="https://www.southark.edu" target="_top">Transfer Fair</a></li>
-        <li><a href="https://www.southark.edu" target="_top">SAU Transfer Fair</a></li>
-        <li><a href="https://www.southark.edu/o/sac/page/howard-hall-construction" target="_top">Howard Hall Construction</a></li>
-        <li><a href="https://www.southark.edu/o/sac/page/bill-howard-ball-park" target="_top">Bill Howard Ballpark</a></li>
-      </ul>
+      <button
+        type="button"
+        id="motionToggle"
+        class="icon-control pause-control"
+        aria-controls="SouthArk"
+        aria-pressed="false"
+        aria-label="Pause motion"
+        title="Pause motion"
+      >
+        <i class="fa-solid fa-pause" aria-hidden="true"></i>
+      </button>
     </div>
 
     <div id="aria-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
@@ -221,10 +252,10 @@
 
   <script>
     const video = document.getElementById('SouthArk');
+    const prevSlideBtn = document.getElementById('prevSlide');
+    const nextSlideBtn = document.getElementById('nextSlide');
     const motionToggle = document.getElementById('motionToggle');
-    const motionToggleText = document.getElementById('motionToggleText');
     const activeCta = document.getElementById('activeCta');
-    const activeCtaText = document.getElementById('activeCtaText');
     const liveRegion = document.getElementById('aria-live');
 
     const slides = [
@@ -234,6 +265,7 @@
         text: 'Apply Today!',
         href: 'https://www.southark.edu/page/apply-to-southark-today',
         announce: 'Apply Today',
+        ariaLabel: 'Apply to South Arkansas College today',
         icon: 'fa-solid fa-rocket',
         className: 'cta-link'
       },
@@ -243,6 +275,7 @@
         text: 'Calendar!',
         href: 'https://southarkansascollegear.sites.thrillshare.com/o/mfl/page/community-education',
         announce: 'Arts in April Calendar',
+        ariaLabel: 'Arts in April Calendar',
         icon: 'fa-solid fa-paintbrush',
         className: 'cta-link light-blue'
       },
@@ -252,6 +285,7 @@
         text: 'Learn More!',
         href: 'https://www.southark.edu',
         announce: 'Supernova Sale',
+        ariaLabel: 'Supernova Sale',
         icon: 'fa-solid fa-lock',
         className: 'cta-link gold'
       },
@@ -261,6 +295,7 @@
         text: 'Register',
         href: 'https://www.southark.edu/advising',
         announce: 'Register for Fall and Summer',
+        ariaLabel: 'Register for Fall and Summer',
         icon: 'fa-solid fa-pencil',
         className: 'cta-link'
       },
@@ -270,6 +305,7 @@
         text: 'Apply!',
         href: 'https://www.southark.edu',
         announce: 'ATU Transfer Fair',
+        ariaLabel: 'ATU Transfer Fair',
         icon: 'fa-solid fa-house',
         className: 'cta-link'
       },
@@ -279,6 +315,7 @@
         text: 'Learn More!',
         href: 'https://www.southark.edu',
         announce: 'Transfer Fair',
+        ariaLabel: 'Transfer Fair',
         icon: 'fa-solid fa-house',
         className: 'cta-link'
       },
@@ -288,6 +325,7 @@
         text: 'Learn More!',
         href: 'https://www.southark.edu',
         announce: 'SAU Transfer Fair',
+        ariaLabel: 'SAU Transfer Fair',
         icon: 'fa-solid fa-house',
         className: 'cta-link'
       },
@@ -297,6 +335,7 @@
         text: 'Visit!',
         href: 'https://www.southark.edu/o/sac/page/howard-hall-construction',
         announce: 'Howard Hall Construction',
+        ariaLabel: 'Howard Hall Construction',
         icon: 'fa-solid fa-house',
         className: 'cta-link'
       },
@@ -306,59 +345,87 @@
         text: 'Visit!',
         href: 'https://www.southark.edu/o/sac/page/bill-howard-ball-park',
         announce: 'Bill Howard Ballpark',
+        ariaLabel: 'Bill Howard Ballpark',
         icon: 'fa-solid fa-baseball',
         className: 'cta-link'
       }
     ];
 
+    let currentSlideIndex = 0;
     let lastAnnouncement = '';
 
-    function getCurrentSlide(time) {
-      return slides.find(slide => time >= slide.start && time < slide.end) || slides[0];
-    }
+    function updateSlide(index, announce = true) {
+      currentSlideIndex = (index + slides.length) % slides.length;
+      const slide = slides[currentSlideIndex];
 
-    function updateActiveCta() {
-      const currentSlide = getCurrentSlide(video.currentTime);
-
-      activeCta.href = currentSlide.href;
-      activeCta.className = currentSlide.className;
+      activeCta.href = slide.href;
+      activeCta.className = slide.className;
+      activeCta.setAttribute('aria-label', slide.ariaLabel);
       activeCta.innerHTML = `
-        <i class="${currentSlide.icon}" aria-hidden="true"></i>
-        <span id="activeCtaText">${currentSlide.text}</span>
+        <i class="${slide.icon}" aria-hidden="true"></i>
+        <span>${slide.text}</span>
       `;
-      activeCta.setAttribute('aria-label', currentSlide.announce);
 
-      if (currentSlide.announce !== lastAnnouncement) {
-        liveRegion.textContent = currentSlide.announce;
-        lastAnnouncement = currentSlide.announce;
+      if (announce && slide.announce !== lastAnnouncement) {
+        liveRegion.textContent = slide.announce;
+        lastAnnouncement = slide.announce;
       }
     }
 
-    function pauseMotion() {
-      video.pause();
-      motionToggle.setAttribute('aria-pressed', 'true');
-      motionToggle.innerHTML = '<i class="fa-solid fa-play" aria-hidden="true"></i> <span id="motionToggleText">Play Motion</span>';
+    function syncSlideToTime() {
+      const time = video.currentTime;
+      const foundIndex = slides.findIndex(slide => time >= slide.start && time < slide.end);
+      if (foundIndex !== -1 && foundIndex !== currentSlideIndex) {
+        updateSlide(foundIndex, true);
+      }
     }
 
-    function playMotion() {
-      video.play();
-      motionToggle.setAttribute('aria-pressed', 'false');
-      motionToggle.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i> <span id="motionToggleText">Pause Motion</span>';
+    function goToSlide(index) {
+      const safeIndex = (index + slides.length) % slides.length;
+      currentSlideIndex = safeIndex;
+      video.currentTime = slides[safeIndex].start + 0.05;
+      updateSlide(safeIndex, true);
     }
+
+    function setPauseState(isPaused) {
+      motionToggle.setAttribute('aria-pressed', isPaused ? 'true' : 'false');
+      motionToggle.setAttribute('aria-label', isPaused ? 'Play motion' : 'Pause motion');
+      motionToggle.setAttribute('title', isPaused ? 'Play motion' : 'Pause motion');
+      motionToggle.innerHTML = isPaused
+        ? '<i class="fa-solid fa-play" aria-hidden="true"></i>'
+        : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+    }
+
+    prevSlideBtn.addEventListener('click', () => {
+      video.pause();
+      setPauseState(true);
+      goToSlide(currentSlideIndex - 1);
+    });
+
+    nextSlideBtn.addEventListener('click', () => {
+      video.pause();
+      setPauseState(true);
+      goToSlide(currentSlideIndex + 1);
+    });
 
     motionToggle.addEventListener('click', () => {
       if (video.paused) {
-        playMotion();
+        video.play();
+        setPauseState(false);
       } else {
-        pauseMotion();
+        video.pause();
+        setPauseState(true);
       }
     });
 
-    video.addEventListener('timeupdate', updateActiveCta);
-    video.addEventListener('loadedmetadata', updateActiveCta);
-    video.addEventListener('play', updateActiveCta);
+    video.addEventListener('timeupdate', syncSlideToTime);
+    video.addEventListener('loadedmetadata', () => updateSlide(0, false));
+    video.addEventListener('play', () => setPauseState(false));
+    video.addEventListener('pause', () => setPauseState(true));
+    video.addEventListener('ended', () => updateSlide(0, false));
 
-    updateActiveCta();
+    updateSlide(0, false);
+    setPauseState(video.paused);
   </script>
 </body>
 </html>
