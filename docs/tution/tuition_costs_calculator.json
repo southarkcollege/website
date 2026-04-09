@@ -1,4 +1,4 @@
-{
+const financialAidOptions = {
   "tuition_per_credit": {
     "in_district": 105,
     "out_of_district": 120,
@@ -38,4 +38,4 @@
     "ark_challenge": 1000,
     "ark_challenge_plus:" 1500
   }
-}
+};
