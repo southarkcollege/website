@@ -1,7 +1,7 @@
 {
   "tuition_per_credit": {
-    "in_district": 100,
-    "out_of_district": 115,
+    "in_district": 105,
+    "out_of_district": 120,
     "out_of_state": 190
   },
   "housing": 0,
