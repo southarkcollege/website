@@ -1,4 +1,4 @@
-const financialAidOptions = {
+{
   "tuition_per_credit": {
     "in_district": 105,
     "out_of_district": 120,
@@ -12,7 +12,7 @@ const financialAidOptions = {
   },
   "miscellaneous_fees_tech": {
     "misc_fee_tech_12hrs": 558,
-    "misc_fee_tech_15hrs": 690
+    "misc_fee_tech_15hrs": 690,
     "hybrid_fee_tech_12hrs": 156,
     "hybrid_fee_tech_15hrs": 195
   },
@@ -30,12 +30,12 @@ const financialAidOptions = {
     "safrs_osa": 1400
   },
   "south_ark_presidential_scholarship": {
-    "saps_ida:" 1575,
+    "saps_ida": 1575,
     "saps_oda": 1800,
     "saps_osa": 1800
   },
-  "potential_add-ons": {
+  "potential_add_ons": {
     "ark_challenge": 1000,
-    "ark_challenge_plus:" 1500
+    "ark_challenge_plus": 1500
   }
-};
+}
